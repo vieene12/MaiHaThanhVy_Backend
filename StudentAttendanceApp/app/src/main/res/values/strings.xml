@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quản Lý Điểm Danh</string>
+    <string name="app_subtitle">Hệ thống điểm danh sinh viên</string>
+
+    <!-- Auth -->
+    <string name="login">Đăng nhập</string>
+    <string name="register">Đăng ký</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
+    <string name="full_name">Họ và tên</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="otp_verification">Xác nhận OTP</string>
+    <string name="enter_otp">Nhập mã OTP 6 chữ số đã gửi đến</string>
+    <string name="resend_otp">Gửi lại OTP</string>
+    <string name="verify">Xác nhận</string>
+    <string name="login_with_google">Đăng nhập bằng Google</string>
+    <string name="login_with_face">Đăng nhập bằng Khuôn mặt</string>
+    <string name="no_account">Chưa có tài khoản? Đăng ký ngay</string>
+    <string name="have_account">Đã có tài khoản? Đăng nhập</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard">Trang chủ</string>
+    <string name="total_students">Tổng Sinh viên</string>
+    <string name="total_classes">Lớp học</string>
+    <string name="today_sessions">Buổi hôm nay</string>
+    <string name="attendance_rate">Tỉ lệ điểm danh</string>
+
+    <!-- Students -->
+    <string name="manage_students">Quản lý Sinh viên</string>
+    <string name="add_student">Thêm Sinh viên</string>
+    <string name="edit_student">Sửa Sinh viên</string>
+    <string name="student_code">Mã sinh viên</string>
+    <string name="date_of_birth">Ngày sinh</string>
+    <string name="gender">Giới tính</string>
+    <string name="address">Địa chỉ</string>
+    <string name="major">Ngành học</string>
+    <string name="search_students">Tìm kiếm sinh viên...</string>
+    <string name="no_students">Chưa có sinh viên nào</string>
+    <string name="delete_student_confirm">Bạn có chắc muốn xóa sinh viên này?</string>
+
+    <!-- Classes -->
+    <string name="manage_classes">Quản lý Lớp học</string>
+    <string name="add_class">Thêm Lớp học</string>
+    <string name="edit_class">Sửa Lớp học</string>
+    <string name="class_name">Tên lớp học</string>
+    <string name="subject">Môn học</string>
+    <string name="teacher">Giảng viên</string>
+    <string name="room">Phòng học</string>
+    <string name="semester">Học kỳ</string>
+    <string name="schedule">Lịch học</string>
+    <string name="max_students">Số SV tối đa</string>
+
+    <!-- Subjects -->
+    <string name="manage_subjects">Quản lý Môn học</string>
+    <string name="subject_code">Mã môn học</string>
+    <string name="subject_name">Tên môn học</string>
+    <string name="credits">Số tín chỉ</string>
+    <string name="description">Mô tả</string>
+
+    <!-- Attendance -->
+    <string name="attendance">Điểm danh</string>
+    <string name="create_session">Tạo phiên điểm danh</string>
+    <string name="scan_qr">Quét mã QR</string>
+    <string name="share_location">Chia sẻ vị trí</string>
+    <string name="present">Có mặt</string>
+    <string name="absent">Vắng</string>
+    <string name="late">Trễ</string>
+    <string name="excused">Có phép</string>
+    <string name="check_in_success">Điểm danh thành công!</string>
+    <string name="my_attendance">Lịch sử điểm danh</string>
+    <string name="reports">Báo cáo</string>
+    <string name="qr_hint">Hướng camera vào mã QR để điểm danh</string>
+    <string name="wifi_attendance">Điểm danh WiFi</string>
+
+    <!-- Common -->
+    <string name="save">Lưu</string>
+    <string name="cancel">Hủy</string>
+    <string name="delete">Xóa</string>
+    <string name="edit">Sửa</string>
+    <string name="confirm">Xác nhận</string>
+    <string name="loading">Đang tải...</string>
+    <string name="error_network">Lỗi kết nối mạng</string>
+    <string name="error_server">Lỗi server</string>
+    <string name="success">Thành công</string>
+    <string name="settings">Cài đặt</string>
+    <string name="profile">Hồ sơ</string>
+
+    <!-- Google Auth - Điền Web Client ID từ Google Cloud Console vào đây -->
+    <string name="google_web_client_id">YOUR_WEB_CLIENT_ID.apps.googleusercontent.com</string>
+
+    <!-- Validation -->
+    <string name="error_field_required">Vui lòng điền thông tin này</string>
+    <string name="error_invalid_email">Email không hợp lệ</string>
+    <string name="error_password_short">Mật khẩu phải có ít nhất 6 ký tự</string>
+    <string name="error_password_mismatch">Mật khẩu xác nhận không khớp</string>
+
+    <!-- Location -->
+    <string name="location_sharing">Chia sẻ vị trí</string>
+    <string name="getting_location">Đang lấy vị trí...</string>
+    <string name="location_obtained">Đã lấy được vị trí</string>
+    <string name="share_location_desc">Chia sẻ vị trí GPS để xác nhận điểm danh</string>
+
+    <!-- QR -->
+    <string name="qr_scanner">Quét QR điểm danh</string>
+    <string name="scanning">Đang quét...</string>
+
+    <!-- Teacher -->
+    <string name="my_classes">Lớp học của tôi</string>
+    <string name="create_attendance">Tạo buổi điểm danh</string>
+    <string name="session_active">Phiên đang hoạt động</string>
+    <string name="show_qr">Hiển thị QR Code</string>
+
+    <!-- Student -->
+    <string name="my_classes_student">Lớp học đã đăng ký</string>
+    <string name="attendance_history">Lịch sử điểm danh</string>
+    <string name="check_in">Điểm danh ngay</string>
+</resources>

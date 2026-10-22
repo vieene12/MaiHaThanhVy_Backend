@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_home" android:title="Trang chủ" android:icon="@android:drawable/ic_menu_compass" />
+    <item android:id="@+id/nav_students" android:title="Sinh viên" android:icon="@android:drawable/ic_menu_myplaces" />
+    <item android:id="@+id/nav_classes" android:title="Lớp học" android:icon="@android:drawable/ic_menu_agenda" />
+    <item android:id="@+id/nav_reports" android:title="Báo cáo" android:icon="@android:drawable/ic_menu_info_details" />
+</menu>

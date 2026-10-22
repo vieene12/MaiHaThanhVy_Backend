@@ -1,0 +1,107 @@
+@MaiHaThanhVy_Backend_HostAddress = http://localhost:5215
+@authToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+
+### 1. Đăng ký tài khoản
+POST {{MaiHaThanhVy_Backend_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "student1@example.com",
+  "password": "Password123@",
+  "fullName": "Nguyễn Minh Tuấn",
+  "role": "STUDENT",
+  "phoneNumber": "0987654321"
+}
+
+### 2. Đăng nhập (yêu cầu OTP)
+POST {{MaiHaThanhVy_Backend_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "student1@example.com",
+  "password": "Password123@"
+}
+
+### 3. Xác thực OTP để nhận JWT Token
+POST {{MaiHaThanhVy_Backend_HostAddress}}/api/auth/verify-otp
+Content-Type: application/json
+
+{
+  "email": "student1@example.com",
+  "code": "123456",
+  "type": "LOGIN"
+}
+
+### 4. Gửi lại OTP
+POST {{MaiHaThanhVy_Backend_HostAddress}}/api/auth/resend-otp
+Content-Type: application/json
+
+{
+  "email": "student1@example.com",
+  "type": "LOGIN"
+}
+
+### 5. Thông tin profile cá nhân
+GET {{MaiHaThanhVy_Backend_HostAddress}}/api/auth/profile
+Authorization: Bearer {{authToken}}
+
+### 6. Cập nhật profile cá nhân
+PUT {{MaiHaThanhVy_Backend_HostAddress}}/api/auth/profile
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "fullName": "Nguyễn Minh Tuấn (Updated)",
+  "phoneNumber": "0912345678"
+}
+
+### 7. Thống kê Admin Dashboard
+GET {{MaiHaThanhVy_Backend_HostAddress}}/api/dashboard/admin
+Authorization: Bearer {{authToken}}
+
+### 8. Lấy danh sách sinh viên
+GET {{MaiHaThanhVy_Backend_HostAddress}}/api/students?page=1&pageSize=10
+Authorization: Bearer {{authToken}}
+
+### 9. Lấy danh sách giảng viên
+GET {{MaiHaThanhVy_Backend_HostAddress}}/api/teachers?page=1&pageSize=10
+Authorization: Bearer {{authToken}}
+
+### 10. Lấy danh sách môn học
+GET {{MaiHaThanhVy_Backend_HostAddress}}/api/subjects?page=1&pageSize=20
+Authorization: Bearer {{authToken}}
+
+### 11. Lấy danh sách lớp học
+GET {{MaiHaThanhVy_Backend_HostAddress}}/api/classrooms?page=1&pageSize=10
+Authorization: Bearer {{authToken}}
+
+### 12. Tạo phiên điểm danh (Giảng viên)
+POST {{MaiHaThanhVy_Backend_HostAddress}}/api/attendance/sessions
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "classRoomId": 1,
+  "teacherId": 1,
+  "sessionDate": "2025-10-22",
+  "startTime": "08:00",
+  "endTime": "11:30",
+  "wifiSSID": "HUTECH_CAMPUS_WIFI",
+  "note": "Buổi học lý thuyết chương 1"
+}
+
+### 13. Sinh viên điểm danh bằng mã QR
+POST {{MaiHaThanhVy_Backend_HostAddress}}/api/attendance/sessions/1/qr-checkin
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+  "studentId": 1,
+  "qrCode": "ATT-1-...",
+  "latitude": 10.8018,
+  "longitude": 106.7145
+}
+
+### 14. Báo cáo điểm danh theo lớp
+GET {{MaiHaThanhVy_Backend_HostAddress}}/api/attendance/report/1
+Authorization: Bearer {{authToken}}
