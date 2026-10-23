@@ -1,4 +1,4 @@
-    using System.Security.Claims;
+﻿    using System.Security.Claims;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.EntityFrameworkCore;
@@ -86,7 +86,7 @@
                 // Generate unique QR code if not provided
                 var qrCode = !string.IsNullOrWhiteSpace(dto.QRCode)
                     ? dto.QRCode.Trim()
-                    : $"ATT-{classRoom.Id}-{DateTime.UtcNow.Ticks}-{Guid.NewGuid().ToString("N")[..8]}";
+                    : Guid.NewGuid().ToString("N")[..6].ToUpperInvariant();
 
                 var session = new AttendanceSession
                 {
@@ -322,7 +322,19 @@
                     return BadRequest(ApiResponse.ErrorResponse("Dữ liệu không hợp lệ"));
                 }
 
-                var session = await _context.AttendanceSessions.FindAsync(sessionId);
+                var qrTrimmed = dto.QRCode?.Trim() ?? string.Empty;
+                var session = sessionId > 0 ? await _context.AttendanceSessions.FindAsync(sessionId) : null;
+                if (session == null || !string.Equals(session.QRCode?.Trim(), qrTrimmed, StringComparison.OrdinalIgnoreCase))
+                {
+                    var sessionByQr = await _context.AttendanceSessions
+                        .OrderByDescending(s => s.Id)
+                        .FirstOrDefaultAsync(s => s.IsActive && s.QRCode != null && s.QRCode == qrTrimmed);
+                    if (sessionByQr != null)
+                    {
+                        session = sessionByQr;
+                        sessionId = session.Id;
+                    }
+                }
                 if (session == null || !session.IsActive)
                 {
                     return NotFound(ApiResponse.ErrorResponse("Phiên điểm danh không tồn tại hoặc đã đóng"));
